@@ -4,7 +4,7 @@
     <div class="form-group">
       <input type="number" class="form-control" id="age" required v-model="age" name="age">
     </div>
- 
+
     <div class="btn-group">
       <button v-on:click="searchCustomers" class="btn btn-success">Search</button>
     </div>
@@ -29,7 +29,6 @@ export default {
     };
   },
   methods: {
-    /* eslint-disable no-console */
     searchCustomers() {
       http
         .get("/customers/age/" + this.age)

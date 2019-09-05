@@ -1,8 +1,8 @@
 <template>
     <div id="app" class="container-fluid">
         <div class="site-info">
-            <h1>grokonez</h1>
-            <h3>Vue SpringBoot example</h3>
+            <h1 class="btn-success">Rifai KUÇİ</h1>
+            <h3 class=" btn-primary">Vue js spring boot restful servisleri postgresql hibernate </h3>
         </div>
         <nav>
             <router-link class="btn btn-primary" to="/">Customers</router-link>

@@ -5,15 +5,23 @@
           <label for="name">Name</label>
           <input type="text" class="form-control" id="name" required v-model="customer.name" name="name">
         </div>
-    
+
         <div class="form-group">
-          <label for="age">Age</label>
+          <label  for="age">Age</label>
           <input type="number" class="form-control" id="age" required v-model="customer.age" name="age">
         </div>
-    
+
         <button v-on:click="saveCustomer" class="btn btn-success">Submit</button>
+        <br>
+        <br>
+        <hr>
+        <div class="alert alert-danger" role="alert" >
+           Alanların dolu olması gerekiyor.
+        </div>
     </div>
-    
+
+
+
     <div v-else>
       <h4>You submitted successfully!</h4>
       <button class="btn btn-success" v-on:click="newCustomer">Add</button>
@@ -34,35 +42,42 @@ export default {
         age: 0,
         active: false
       },
-      submitted: false
+      submitted: false,
+
     };
   },
   methods: {
     /* eslint-disable no-console */
     saveCustomer() {
-      var data = {
-        name: this.customer.name,
-        age: this.customer.age
-      };
 
-      http
-        .post("/customer", data)
-        .then(response => {
-          this.customer.id = response.data.id;
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
 
-      this.submitted = true;
-    },
-    newCustomer() {
-      this.submitted = false;
-      this.customer = {};
+            var data = {
+                name: this.customer.name,
+                age: this.customer.age
+            };
+
+            http
+                .post("/customer", data)
+                .then(response => {
+                    this.customer.id = response.data.id;
+                    console.log(response.data);
+                })
+                .catch(e => {
+                    console.log(e);
+                });
+
+            this.submitted = true;
+        }
     }
+    ,
+        newCustomer()
+        {
+            this.submitted = false;
+            this.customer = {};
+        }
+
     /* eslint-enable no-console */
-  }
+
 };
 </script>
 
